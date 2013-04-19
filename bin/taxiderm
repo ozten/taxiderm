@@ -1,24 +1,29 @@
-var 
+var connect = require('connect'),
     fs = require('fs'),
     http = require('http'),
     home = require('../lib/home'),
-    taxiderm = require('../lib/taxiderm');
+    path = require('path'),
+    taxiderm = require('../lib/taxiderm'),
+    urlparse = require('urlparse');
 
-var server = http.createServer(function(req, res) {
+var app = connect();
+var appStatic = path.join(__dirname, '..', 'lib', 'views', 'static');
+console.log(appStatic);
+app.use(connect.static(appStatic));
+app.use(function(req, res) {
+
   // urlparse?
-
+  var url = urlparse(req.url);
   // With what data?
   var j = JSON.parse(fs.readFileSync('.taxiderm', 'utf8'));
 
-  var path = "id_mismatch.ejs"; // TODO from req
-  //path = '/';
+  //var path = "id_mismatch.ejs"; // TODO from req
 
-  if ('/' === path) {
+  if ('/' === url.path) {
     home.render(req, res, j);
-  } else {
-  
+  } else {  
     taxiderm.render(req, res, j);
   }
 });
 
-server.listen(8889);
+http.createServer(app).listen(8889);

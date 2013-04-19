@@ -2,8 +2,11 @@
   "name": "taxiderm",
   "version": "0.0.0",
   "dependencies": {
+    "connect": "2.7.6",
     "ejs": "0.8.3",
-    "escape-html": "0.0.1"
+    "escape-html": "0.0.1",
+    "underscore": "1.4.4",
+    "urlparse": "0.0.1"
   },
   "description": "Webserver that fills templates with fake data for easy preveiwing",
   "main": "bin/taxiderm",
