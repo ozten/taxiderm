@@ -1,0 +1,27 @@
+{
+  "name": "taxiderm",
+  "version": "0.0.0",
+  "dependencies": {
+    "ejs": "0.8.3",
+    "escape-html": "0.0.1"
+  },
+  "description": "Webserver that fills templates with fake data for easy preveiwing",
+  "main": "bin/taxiderm",
+  "scripts": {
+    "test": "node tests/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ozten/taxiderm.git"
+  },
+  "keywords": [
+    "Developer",
+    "Designer",
+    "Tools",
+    "Templates",
+    "CSS",
+    "L10n"
+  ],
+  "author": "Austin King",
+  "license": "BSD"
+}

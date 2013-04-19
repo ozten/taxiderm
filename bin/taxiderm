@@ -1,0 +1,25 @@
+var ejs = require('ejs'),
+    escapeHtml = require('escape-html'),
+    fs = require('fs'),
+    http = require('http');
+
+var server = http.createServer(function(req, res) {
+  var raw = fs.readFileSync('server/views/id_mismatch.ejs');
+  var template = ejs.compile(raw.toString('utf8'));
+  var data = JSON.parse(fs.readFileSync('.taxiderm', 'utf8'));
+  
+  var body = "<!DOCTYPE html>";
+  try {
+    body = template(data);
+  } catch (e) {
+    // TODO X is 
+    body += "<pre>" + escapeHtml(e.toString('utf8')) + "</pre>";
+  }
+  res.writeHead(200, {
+    'Content-Length': body.length,
+    'Content-Type': 'text/html; charset=UTF-8'
+  });
+  res.end(body);
+});
+
+server.listen(8889);
