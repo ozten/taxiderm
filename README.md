@@ -18,15 +18,37 @@ Sane defaults remove the need for supplying everything.
 Example `.taxiderm`
 
     {
-      templateRoot: "server/views",
-      "id_mismatch.ejs": {
-        "ID Mismatch Error": {
-          claimed: "alice@yahoo.com",
-          mismatched: "alice@yahoo.co.uk",
-          provider: "Yahoo",
-          providerURL: "https://mail.yahoo.com"
+      "staticRoot": "static",
+      "templateRoot": "server/views",
+      "globalVars": {
+        "csrf_token": "asdf978sd09f8ds",
+        "browserid_server": "",
+        "dev_mode": false,
+        "lang": "en-US",
+        "lang_dir": "",
+        "gettext": "(function(a){return a})",
+        "format": "(function(a){return a})",
+        "cachify_js": "(function(a){return '<script src=\"https://dev.bigtent.mozilla.org' + a + '\"></script>'})",
+        "cachify_css": "(function(a){return '<link rel=\"stylesheet\" href=\"https://dev.bigtent.mozilla.org' + a + '\" />'})"
+      },
+      "screens": [
+        { "template": "id_mismatch.ejs",
+          "linkTitle": "ID Mismatch Error",
+          "variables": {
+            "claimed": "alice@yahoo.com",
+            "mismatched": "alice@yahoo.co.uk",
+            "provider": "Yahoo",
+            "providerURL": "https://mail.yahoo.com"
+          }
+        },
+        { "template": "authentication.ejs",
+          "linkTitle": "Progress Screen",
+          "variables": {
+            "provider": "Yahoo",
+            "providerURL": "https://mail.yahoo.com"
+          }
         }
-      }
+      ]
     }
 
 `templateRoot` defaults to `views`.

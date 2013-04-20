@@ -6,23 +6,26 @@ var connect = require('connect'),
     taxiderm = require('../lib/taxiderm'),
     urlparse = require('urlparse');
 
+var j = JSON.parse(fs.readFileSync('.taxiderm', 'utf8'));
+
 var app = connect();
 var appStatic = path.join(__dirname, '..', 'lib', 'views', 'static');
-console.log(appStatic);
 app.use(connect.static(appStatic));
+var siteStatic = path.join(process.cwd(), j.staticRoot);
+app.use(connect.static(siteStatic));
 app.use(function(req, res) {
 
   // urlparse?
   var url = urlparse(req.url);
   // With what data?
-  var j = JSON.parse(fs.readFileSync('.taxiderm', 'utf8'));
+
 
   //var path = "id_mismatch.ejs"; // TODO from req
 
   if ('/' === url.path) {
-    home.render(req, res, j);
+    home.render(req, res, url, j);
   } else {  
-    taxiderm.render(req, res, j);
+    taxiderm.render(req, res, url, j);
   }
 });
 
