@@ -6,7 +6,7 @@ Takes the skins from your frontend and pumps them full of sawdust.
 Creates life-like webapps which can easily be:
 
 * worked on for CSS tweaks in hard to reach places
-* shared with L10n community
+* share links with localization community, so they can preview their work
 
 Usage:
 
