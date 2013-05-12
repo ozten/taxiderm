@@ -53,7 +53,6 @@ function loadDirectory(dir) {
                     cbCounter++;
                     isTemplate(fullpath, function(err, wasFile, templatePath) {
                         cbCounter--;
-                        console.log('okay');
                         if (wasFile) {
                             var relTemplatePath = templatePath.substring(projectDir.length + 1);
                             templatePaths.push(relTemplatePath);
@@ -93,6 +92,12 @@ $(document).ready(function(){
                                  'confirm_new_project',
                                  {projectName: projectName});
 
+    var homepageView = view('#homepage', 'homepage', {});
+    taxidermyController.addView(homepageView, []);
+
+    var templatePoolView = view('#template-pool', 'template_pool', {});
+    taxidermyController.addView(templatePoolView, []);
+
     taxidermyController.addView(confirmNewProject, [projectName]);
 
     $('#chooseProjectFolderLink').click(function(e) {
@@ -126,7 +131,6 @@ function controller() {
             });
         },
         modelUpdated: function(modelId) {
-            console.log(modelIdToViews, modelId);
             modelIdToViews[modelId].forEach(function(view) {
                 view.refresh();
             });
@@ -141,7 +145,6 @@ function model(id, value, controller) {
   return {
     id: id,
     setValue: function(value) {
-        console.log(models, id);
         models[id] = value;
         controller.modelUpdated(id);
     },
@@ -159,12 +162,10 @@ function view(domId, template, data) {
     return {
         id: domId,
         refresh: function() {
-            console.log(data);
             var params = {};
             Object.keys(data).forEach(function(key) {
                 params[key] = data[key].getValue();
             });
-            console.log(params);
             $(domId).replaceWith(Mustache.render(templateSrc, params));
         }
     }
