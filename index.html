@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--[if IE 8]>               <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Taxidermy</title>
+
+  <link rel="stylesheet" href="lib/views/static/vendor/css/normalize.css" />
+
+  <link rel="stylesheet" href="lib/views/static/vendor/css/foundation.css" />
+
+  <link rel="stylesheet" href="lib/views/static/taxiderm.css" />
+  <link rel="stylesheet" href="nw/css/nw_taxidermy.css" />
+
+  <script src="lib/views/static/vendor/js/vendor/custom.modernizr.js"></script>
+
+<script>
+  document.write('<script src=' +
+  ('__proto__' in {} ? 'lib/views/static/vendor/js/vendor/zepto' : 'lib/views/static/vendor/js/vendor/jquery') +
+  '.js><\/script>')
+  </script>
+
+  <script src="lib/views/static/vendor/js/foundation.min.js"></script>
+  <!-- mustache must be available to render the rest of the page... -->
+  <script src="nw/js/lib/mustache.js"></script>
+  <script src="nw/js/taxidermy.js"></script>
+
+</head>
+<body>
+
+
+  <div id="confirm-new-project"></div>
+  <script>
+  render('homepage');
+  // TODO - data binding to refresh projectDir
+
+  render('template_pool');
+  </script>
+
+
+
+
+  <!--
+
+  <script src="vendor/js/foundation/foundation.js"></script>
+
+  <script src="vendor/js/foundation/foundation.alerts.js"></script>
+
+  <script src="vendor/js/foundation/foundation.clearing.js"></script>
+
+  <script src="vendor/js/foundation/foundation.cookie.js"></script>
+
+  <script src="vendor/js/foundation/foundation.dropdown.js"></script>
+
+  <script src="vendor/js/foundation/foundation.forms.js"></script>
+
+  <script src="vendor/js/foundation/foundation.joyride.js"></script>
+
+  <script src="vendor/js/foundation/foundation.magellan.js"></script>
+
+  <script src="vendor/js/foundation/foundation.orbit.js"></script>
+
+  <script src="vendor/js/foundation/foundation.placeholder.js"></script>
+
+  <script src="vendor/js/foundation/foundation.reveal.js"></script>
+
+  <script src="vendor/js/foundation/foundation.section.js"></script>
+
+  <script src="vendor/js/foundation/foundation.tooltips.js"></script>
+
+  <script src="vendor/js/foundation/foundation.topbar.js"></script>
+
+  -->
+
+  <script>
+    $(document).foundation();
+    changePage($('#homepage'));
+  </script>
+</body>
+</html>

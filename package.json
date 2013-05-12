@@ -1,5 +1,5 @@
 {
-  "name": "taxiderm",
+  "name": "taxidermy",
   "version": "0.0.0",
   "dependencies": {
     "connect": "2.7.6",
@@ -9,9 +9,15 @@
     "urlparse": "0.0.1"
   },
   "description": "Webserver that fills templates with fake data for easy preveiwing",
-  "main": "bin/taxiderm",
+  "main": "index.html",
+  "window": {
+    "toolbar": true,
+    "width": 800,
+    "height": 600
+  },
   "scripts": {
-    "test": "node tests/*.js"
+    "test": "node tests/*.js",
+    "start": "bin/taxiderm"
   },
   "repository": {
     "type": "git",
