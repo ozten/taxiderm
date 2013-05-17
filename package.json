@@ -16,8 +16,8 @@
     "height": 600
   },
   "scripts": {
-    "test": "node tests/*.js",
-    "start": "bin/taxiderm"
+    "test": "node server/tests/*.js",
+    "start": "node server/bin/taxiderm"
   },
   "repository": {
     "type": "git",
