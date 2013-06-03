@@ -7,24 +7,27 @@
   <meta name="viewport" content="width=device-width" />
   <title>Taxidermy</title>
 
-  <link rel="stylesheet" href="lib/views/static/vendor/css/normalize.css" />
+  <link rel="stylesheet" href="server/lib/views/static/vendor/css/normalize.css" />
 
-  <link rel="stylesheet" href="lib/views/static/vendor/css/foundation.css" />
+  <link rel="stylesheet" href="server/lib/views/static/vendor/css/foundation.css" />
 
-  <link rel="stylesheet" href="lib/views/static/taxiderm.css" />
+  <link rel="stylesheet" href="server/lib/views/static/taxiderm.css" />
   <link rel="stylesheet" href="nw/css/nw_taxidermy.css" />
 
-  <script src="lib/views/static/vendor/js/vendor/custom.modernizr.js"></script>
+  <script src="server/lib/views/static/vendor/js/vendor/custom.modernizr.js"></script>
 
 <script>
   document.write('<script src=' +
-  ('__proto__' in {} ? 'lib/views/static/vendor/js/vendor/zepto' : 'lib/views/static/vendor/js/vendor/jquery') +
+  ('__proto__' in {} ? 'server/lib/views/static/vendor/js/vendor/zepto' : 'server/lib/views/static/vendor/js/vendor/jquery') +
   '.js><\/script>');
   </script>
 
-  <script src="lib/views/static/vendor/js/foundation.min.js"></script>
+  <script src="server/lib/views/static/vendor/js/foundation.min.js"></script>
   <!-- mustache must be available to render the rest of the page... -->
   <script src="nw/js/lib/mustache.js"></script>
+  <script src="nw/js/lib/controller/confirm_new_project.js"></script>
+  <script src="nw/js/lib/controller/template_pool_controller.js"></script>
+  <script src="nw/js/lib/storage.js"></script>
   <script src="nw/js/taxidermy.js"></script>
 
 </head>
@@ -33,7 +36,11 @@
   <div id="homepage"></div>
   <div id="confirm-new-project"></div>
   <div id="template-pool"></div>
+  <div id="preview-screen"></div>
   <div id="foo"></div>
+
+
+
   <script>
 
   </script>
@@ -75,7 +82,7 @@
 
   <script>
     $(document).foundation();
-    changePage($('#homepage'));
+    //changePage('#homepage');
   </script>
 </body>
 </html>

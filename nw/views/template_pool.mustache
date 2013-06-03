@@ -1,12 +1,37 @@
-  <div id="template-pool" class="row first page">
+<div id="template-pool">
+  <div class="row first page">
     <div class="large-4 columns">
       <h1>Available Templates</h1>
       Screens will be available at <a class="preview-url-copy" href="http://192.168.186.138:8889/">http://192.168.186.138:8889/</a> <strong class="preview-url-feedback">Copied to Clipboard</strong>
       <p>Choose a template which you'd like to preview.</p>
       <ul class="chooseProjecttemplateList">
+      {{#templatePaths}}
+        <li>{{.}}</li>
+      {{/templatePaths}}
         </ul>
-    </div>
+    </div><!-- .large-r .columns -->
     <div class="large-8 columns">
+      <p>You have {{ totalNumTemplates }} templates and {{ totalNumScreens }} preview screens.</p>
+      <a id="create-preview-screen" class="call-to-action"
+         data-reveal-id="create-preview-screen-dialog">Create a Screen</a>
+    </div><!-- .large-8 .columns
+  </div><!-- .row .first .page -->
 
-    </div>
-  </div>
+  <div id="create-preview-screen-dialog" class="reveal-modal">
+    <h1>Creating Preview Screen</h1>
+    <fieldset>
+      <label for="crt-preview-screen-name">Screen Name</label>
+      <input id="crt-preview-screen-name" name="preview-screen-name" type="text" />
+    </fieldset>
+    <select id="crt-preview-screen-template-name" name="template-names">
+    {{#templatePaths}}
+      <option value="{{.}}">{{.}}</option>
+    {{/templatePaths}}
+    </select>
+    <br />
+    <br />
+    <a id="create-preview-screen-dialog-save" class="button" href="">Create</a>
+    <a id="create-preview-screen-dialog-cancel" class="secondary button" href="">Cancel</a>
+
+  </div><!-- #create-preview-screen-dialog -->
+</div><!-- #template-pool -->
